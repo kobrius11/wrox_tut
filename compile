@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# creates compiled directory 
+if [ ! -d "compiled" ]; then
+    mkdir compiled
+fi
+
+# either this fails spectacularly or it works like a charm, 
+for file_name in $(ls *.c); do
+    if $(gcc -o compiled/${file_name%*.c} $file_name); then 
+        echo "$file_name compiled into compiled/${file_name%*.c} succesfully"
+    else
+        echo "$file_name failed to compile"
+    fi
+done
+
+exit 0
