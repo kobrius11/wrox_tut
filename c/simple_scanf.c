@@ -12,4 +12,4 @@ int main()
     scanf("Hello,%d,%g, %c, %[^\n]", &n,&f,&c,s);
     printf("digit: %d\nFloat: %g\nChar: %c\nString: %s\n", n,f,c,s);
     exit(0);
-    }
+}
