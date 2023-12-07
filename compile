@@ -6,9 +6,10 @@ if [ ! -d "compiled" ]; then
 fi
 
 # either this fails spectacularly or it works like a charm, 
-for file_name in $(ls c); do
-    if $(gcc -o compiled/${file_name%*.c} c/$file_name -Wall -Wpedantic -Wextra); then 
-        echo "$file_name compiled into compiled/${file_name%*.c} succesfully"
+for file_name in c/*.c; do
+    output_file="compiled/$(basename ${file_name%.c})"
+    if $(gcc -o $output_file $file_name -Wall -Wpedantic -Wextra); then 
+        echo "${file_name#c/} compiled into $output_file succesfully"
     else
         echo "$file_name failed to compile"
     fi
