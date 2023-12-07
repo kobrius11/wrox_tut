@@ -7,7 +7,7 @@ fi
 
 # either this fails spectacularly or it works like a charm, 
 for file_name in $(ls c); do
-    if $(gcc -o compiled/${file_name%*.c} c/$file_name); then 
+    if $(gcc -o compiled/${file_name%*.c} c/$file_name -Wall -Wpedantic -Wextra); then 
         echo "$file_name compiled into compiled/${file_name%*.c} succesfully"
     else
         echo "$file_name failed to compile"
